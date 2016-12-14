@@ -1,8 +1,11 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +18,8 @@ namespace Martingale
         public Form1()
         {
             InitializeComponent();
+            if (!System.IO.Directory.Exists("data"))
+                System.IO.Directory.CreateDirectory("data");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -52,12 +57,35 @@ namespace Martingale
             public int longMartingDistance { get; set; }
 
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", AppDomain.CurrentDomain.BaseDirectory + "data\\");
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            int maxSheet;
+            List<MartingCalculus> ListMarting;
+            getData(out maxSheet, out ListMarting);
+            exportExcell(ListMarting);
+        }
         /// <summary>
-        /// Buy
+        /// Buy單
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnSearch_Click(object sender, EventArgs e)
+        {
+            int maxSheet;
+            List<MartingCalculus> ListMarting;
+            getData(out maxSheet, out ListMarting);
+            dataGridView1.DataSource = ListMarting;
+            setGridView(maxSheet);
+
+
+        }
+
+        private void getData(out int maxSheet, out List<MartingCalculus> ListMarting)
         {
             decimal startHandQty = Convert.ToDecimal(txtStartQty.Text);
             int startProfit = Convert.ToInt32(txtStartProfit.Text);
@@ -65,44 +93,40 @@ namespace Martingale
             int warehoucePrice = Convert.ToInt32(txtInWarehousePrice.Text);
             decimal scale = Convert.ToDecimal(txtScale.Text);
             int pointDistance = Convert.ToInt32(txtPointDistance.Text);
-            int maxSheet = Convert.ToInt32(txtMaxSheet.Text);
+            maxSheet = Convert.ToInt32(txtMaxSheet.Text);
             int fakeProfit = Convert.ToInt32(txtFakeProfit.Text);
             int testFunds = Convert.ToInt32(txtTestFunds.Text);
 
-            List<MartingCalculus> ListMarting = new List<MartingCalculus>();
+            ListMarting = new List<MartingCalculus>();
             int MaxTotalQty = Convert.ToInt32(numTotalQty.Value);
-                        
+
             for (int i = 1; i <= MaxTotalQty; i++)  //算10手
             {
                 MartingCalculus MC = new MartingCalculus();
                 var LastMC = ListMarting.Count == 0 ? null : ListMarting.Last();
                 if (LastMC == null)
                 {
-            
-                    MC.handQty = startHandQty;                    
+
+                    MC.handQty = startHandQty;
                     MC.diffDistance = 0;
-                    MC.inWarehousePrice = warehoucePrice;                    
+                    MC.inWarehousePrice = warehoucePrice;
                     MC.longMartingDistance = 0;
-                   
+
                 }
                 else
                 {
                     MC.handQty = ListMarting.Last().handQty * scale;
                     MC.inWarehousePrice = ListMarting.Last().inWarehousePrice - pointDistance;
-                    MC.longMartingDistance = ListMarting.First().inWarehousePrice - MC.inWarehousePrice;                    
+                    MC.longMartingDistance = ListMarting.First().inWarehousePrice - MC.inWarehousePrice;
                 }
                 MC.sn = i;
-                MC.sumHandQty = LastMC == null ? MC.handQty : ListMarting.Sum(p=>p.handQty) + MC.handQty;
+                MC.sumHandQty = LastMC == null ? MC.handQty : ListMarting.Sum(p => p.handQty) + MC.handQty;
                 MC.inWarehouseCost = Convert.ToInt32(MC.handQty * MC.inWarehousePrice);
-                MC.sumCost = LastMC == null ? MC.inWarehouseCost :ListMarting.Sum(p => p.inWarehouseCost) + MC.inWarehouseCost;
+                MC.sumCost = LastMC == null ? MC.inWarehouseCost : ListMarting.Sum(p => p.inWarehouseCost) + MC.inWarehouseCost;
                 MC.avgPrice = Convert.ToInt32(MC.sumCost / MC.sumHandQty);
-                MC.profitPrice = MC.avgPrice + (LastMC == null ? startProfit : martingProfit) ;
+                MC.profitPrice = MC.avgPrice + (LastMC == null ? startProfit : martingProfit);
                 ListMarting.Add(MC);
             }
-            dataGridView1.DataSource = ListMarting;
-            setGridView(maxSheet);
-            
-
         }
 
         private void setGridView(int maxSheet)
@@ -116,6 +140,113 @@ namespace Martingale
                     this.dataGridView1.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Red;
                 }
             }
+        }
+        private void exportExcell(List<MartingCalculus> ListMarting)
+        {
+            string pathFileName = DateTime.Now.ToString("yyyy-MM-dd(mm)") + ".xlsx";
+            string strFilePath = AppDomain.CurrentDomain.BaseDirectory + "data\\" + pathFileName;
+
+            ExcelPackage export = new ExcelPackage();
+            using (FileStream OutputStream = new FileStream(strFilePath, FileMode.Create, FileAccess.Write, FileShare.ReadWrite))
+            {
+                export.Workbook.Worksheets.Add("buy");
+                ExcelWorksheet sheet1 = export.Workbook.Worksheets["buy"];
+
+                sheet1.Cells["B2"].Value = "資金控管";
+                sheet1.Cells["C2"].Value = "本金";
+                sheet1.Cells["D2"].Value = txtTestFunds.Text;
+                sheet1.Cells["E2"].Value = "浮虧比";
+                sheet1.Cells["F2"].Value = "";  //浮虧比欄位
+                sheet1.Cells["G2"].Value = "停損金額";
+                sheet1.Cells["H2"].Value = "";
+
+                sheet1.Cells["B4:B5"].Merge = true;
+                sheet1.Cells["B4:B5"].Value = "馬丁策略";
+                sheet1.Cells["C4"].Value = "起始手數";
+                sheet1.Cells["D4"].Value = txtStartQty.Text;
+                sheet1.Cells["C5"].Value = "馬丁比例";
+                sheet1.Cells["D5"].Value = txtScale.Text;
+                sheet1.Cells["E5"].Value = "馬丁點距";
+                sheet1.Cells["F5"].Value = txtPointDistance.Text;
+                sheet1.Cells["G4"].Value = "起始獲利點數";
+                sheet1.Cells["H4"].Value = txtStartProfit.Text;
+                sheet1.Cells["G5"].Value = "馬丁獲利點數";
+                sheet1.Cells["H5"].Value = txtMartinPorfit.Text;
+
+                sheet1.Cells[7, 2].Value = "進單序";
+                sheet1.Cells[7, 3].Value = "手數";
+                sheet1.Cells[7, 4].Value = "累積手數";
+                sheet1.Cells[7, 5].Value = "距前一單點數";
+                sheet1.Cells[7, 6].Value = "進倉價格";
+                sheet1.Cells[7, 7].Value = "進倉成本";
+                sheet1.Cells[7, 8].Value = "累積成本";
+                sheet1.Cells[7, 9].Value = "平均價格";
+                sheet1.Cells[7, 10].Value = "獲利價格";
+                sheet1.Cells[7, 11].Value = "最遠馬丁距離";
+                sheet1.Cells[7, 12].Value = "反彈距離比";
+                sheet1.Cells[7, 13].Value = "反彈距離";
+                sheet1.Cells[7, 14].Value = "虧損金額";
+                sheet1.Cells[7, 15].Value = "耐受區間";
+                sheet1.Cells[7, 16].Value = "獲利金額";
+
+                sheet1.Cells[8, 2].LoadFromCollection<MartingCalculus>(ListMarting);
+                int MaxSheet = Convert.ToInt32(txtMaxSheet.Text);
+                setSheetStyle(MaxSheet, sheet1);
+
+                export.SaveAs(OutputStream);
+                OutputStream.Close();
+            }
+            txtMsg.Text = string.Format("檔案 {0}，產生完成。請按open Folder",pathFileName);
+        }
+
+        private static void setSheetStyle(int MaxSheet, ExcelWorksheet sheet1)
+        {
+            //樣式設定
+            Color colFromHex = System.Drawing.ColorTranslator.FromHtml("#4bbcf4");
+            sheet1.Cells["B2"].Style.Fill.PatternType = ExcelFillStyle.Solid;   //設定背景的實線
+            sheet1.Cells["B2"].Style.Fill.BackgroundColor.SetColor(colFromHex);
+            sheet1.Cells["B4:B5"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            sheet1.Cells["B4:B5"].Style.Fill.BackgroundColor.SetColor(colFromHex);
+
+            Color TEXT = System.Drawing.ColorTranslator.FromHtml("#bbded6");
+            sheet1.Cells["D2"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            sheet1.Cells["D2"].Style.Fill.BackgroundColor.SetColor(TEXT);
+            sheet1.Cells["F2"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            sheet1.Cells["F2"].Style.Fill.BackgroundColor.SetColor(TEXT);
+            sheet1.Cells["H2"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            sheet1.Cells["H2"].Style.Fill.BackgroundColor.SetColor(TEXT);
+            sheet1.Cells["D4"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            sheet1.Cells["D4"].Style.Fill.BackgroundColor.SetColor(TEXT);
+            sheet1.Cells["D5"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            sheet1.Cells["D5"].Style.Fill.BackgroundColor.SetColor(TEXT);
+            sheet1.Cells["F5"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            sheet1.Cells["F5"].Style.Fill.BackgroundColor.SetColor(TEXT);
+            sheet1.Cells["H4"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            sheet1.Cells["H4"].Style.Fill.BackgroundColor.SetColor(TEXT);
+            sheet1.Cells["H5"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            sheet1.Cells["H5"].Style.Fill.BackgroundColor.SetColor(TEXT);
+
+
+            int endRow = sheet1.Dimension.End.Row;
+            int endColumn = sheet1.Dimension.End.Column;
+            sheet1.Cells[7, 1, 7, endColumn].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            sheet1.Cells[1, 1, endRow, endColumn].Style.Font.SetFromFont(new Font("Arial", 12));  //這個要先打
+            sheet1.Cells[1, 1, 7, endColumn].Style.Font.Bold = true;
+
+
+            sheet1.Column(1).Width = 1;
+            sheet1.Row(1).Height = 5;
+            //調整寬度
+            for (int i = 2; i < endColumn; i++)
+            {
+                sheet1.Column(i).AutoFit();
+                sheet1.Column(i).Width += 10;
+            }
+            
+
+            sheet1.Cells[8+MaxSheet,2,endRow,endColumn].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            sheet1.Cells[8 + MaxSheet, 2, endRow, endColumn].Style.Fill.BackgroundColor.SetColor(System.Drawing.ColorTranslator.FromHtml("#ffb6b9"));
+            
         }
     }
 }

@@ -51,6 +51,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtInWarehousePrice = new System.Windows.Forms.MaskedTextBox();
             this.txtStartQty = new System.Windows.Forms.MaskedTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtMsg = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTotalQty)).BeginInit();
             this.SuspendLayout();
@@ -153,11 +155,12 @@
             this.btnExport.TabIndex = 4;
             this.btnExport.Text = "匯出";
             this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 126);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 156);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1019, 314);
@@ -274,11 +277,30 @@
             this.txtStartQty.TabIndex = 6;
             this.txtStartQty.Text = global::Martingale.Properties.Settings.Default.startHandQty;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(680, 84);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Open Folder";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtMsg
+            // 
+            this.txtMsg.Location = new System.Drawing.Point(15, 128);
+            this.txtMsg.Name = "txtMsg";
+            this.txtMsg.Size = new System.Drawing.Size(1016, 22);
+            this.txtMsg.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1059, 482);
+            this.Controls.Add(this.txtMsg);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtInWarehousePrice);
             this.Controls.Add(this.numTotalQty);
             this.Controls.Add(this.txtMartinPorfit);
@@ -337,6 +359,8 @@
         private System.Windows.Forms.NumericUpDown numTotalQty;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.MaskedTextBox txtInWarehousePrice;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtMsg;
     }
 }
 
