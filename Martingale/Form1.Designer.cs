@@ -39,7 +39,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtStartQty = new System.Windows.Forms.MaskedTextBox();
             this.txtStartProfit = new System.Windows.Forms.MaskedTextBox();
             this.txtMartinPorfit = new System.Windows.Forms.MaskedTextBox();
             this.txtScale = new System.Windows.Forms.MaskedTextBox();
@@ -49,8 +48,9 @@
             this.txtTestFunds = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.numTotalQty = new System.Windows.Forms.NumericUpDown();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.txtInWarehousePrice = new System.Windows.Forms.MaskedTextBox();
+            this.txtStartQty = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTotalQty)).BeginInit();
             this.SuspendLayout();
@@ -99,11 +99,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label5.Location = new System.Drawing.Point(276, 55);
+            this.label5.Location = new System.Drawing.Point(242, 55);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 16);
+            this.label5.Size = new System.Drawing.Size(76, 16);
             this.label5.TabIndex = 0;
-            this.label5.Text = "點距";
+            this.label5.Text = "馬丁點距";
             // 
             // label6
             // 
@@ -160,16 +160,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(13, 126);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(875, 276);
+            this.dataGridView1.Size = new System.Drawing.Size(1019, 314);
             this.dataGridView1.TabIndex = 5;
-            // 
-            // txtStartQty
-            // 
-            this.txtStartQty.Location = new System.Drawing.Point(111, 17);
-            this.txtStartQty.Mask = "0.00";
-            this.txtStartQty.Name = "txtStartQty";
-            this.txtStartQty.Size = new System.Drawing.Size(100, 22);
-            this.txtStartQty.TabIndex = 6;
             // 
             // txtStartProfit
             // 
@@ -254,14 +246,6 @@
             0,
             0});
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(773, 49);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -272,12 +256,30 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "起始進倉價格";
             // 
+            // txtInWarehousePrice
+            // 
+            this.txtInWarehousePrice.Location = new System.Drawing.Point(773, 55);
+            this.txtInWarehousePrice.Mask = "000000";
+            this.txtInWarehousePrice.Name = "txtInWarehousePrice";
+            this.txtInWarehousePrice.Size = new System.Drawing.Size(100, 22);
+            this.txtInWarehousePrice.TabIndex = 8;
+            // 
+            // txtStartQty
+            // 
+            this.txtStartQty.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Martingale.Properties.Settings.Default, "startHandQty", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.txtStartQty.Location = new System.Drawing.Point(111, 17);
+            this.txtStartQty.Mask = "0.00";
+            this.txtStartQty.Name = "txtStartQty";
+            this.txtStartQty.Size = new System.Drawing.Size(100, 22);
+            this.txtStartQty.TabIndex = 6;
+            this.txtStartQty.Text = global::Martingale.Properties.Settings.Default.startHandQty;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 414);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1059, 482);
+            this.Controls.Add(this.txtInWarehousePrice);
             this.Controls.Add(this.numTotalQty);
             this.Controls.Add(this.txtMartinPorfit);
             this.Controls.Add(this.txtMaxSheet);
@@ -333,8 +335,8 @@
         private System.Windows.Forms.MaskedTextBox txtTestFunds;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown numTotalQty;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.MaskedTextBox txtInWarehousePrice;
     }
 }
 
