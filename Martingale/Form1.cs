@@ -312,6 +312,5 @@ namespace Martingale
         }
 
         #endregion
-
     }
 }

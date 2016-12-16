@@ -72,7 +72,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(12, 23);
+            this.label1.Location = new System.Drawing.Point(18, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 16);
             this.label1.TabIndex = 0;
@@ -82,7 +82,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(12, 55);
+            this.label2.Location = new System.Drawing.Point(18, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 16);
             this.label2.TabIndex = 0;
@@ -92,7 +92,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(12, 87);
+            this.label3.Location = new System.Drawing.Point(18, 93);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 16);
             this.label3.TabIndex = 0;
@@ -102,7 +102,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(276, 23);
+            this.label4.Location = new System.Drawing.Point(282, 29);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 16);
             this.label4.TabIndex = 0;
@@ -112,7 +112,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label5.Location = new System.Drawing.Point(242, 55);
+            this.label5.Location = new System.Drawing.Point(248, 61);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 16);
             this.label5.TabIndex = 0;
@@ -122,7 +122,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label6.Location = new System.Drawing.Point(242, 87);
+            this.label6.Location = new System.Drawing.Point(248, 93);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 16);
             this.label6.TabIndex = 0;
@@ -132,7 +132,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label7.Location = new System.Drawing.Point(478, 23);
+            this.label7.Location = new System.Drawing.Point(484, 29);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 16);
             this.label7.TabIndex = 0;
@@ -142,7 +142,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label8.Location = new System.Drawing.Point(461, 55);
+            this.label8.Location = new System.Drawing.Point(467, 61);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 16);
             this.label8.TabIndex = 0;
@@ -150,7 +150,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(481, 85);
+            this.btnSearch.Location = new System.Drawing.Point(468, 91);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 3;
@@ -160,7 +160,7 @@
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(587, 85);
+            this.btnExport.Location = new System.Drawing.Point(868, 27);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(75, 23);
             this.btnExport.TabIndex = 4;
@@ -171,7 +171,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 120);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1019, 265);
@@ -179,7 +179,7 @@
             // 
             // txtStartProfit
             // 
-            this.txtStartProfit.Location = new System.Drawing.Point(111, 49);
+            this.txtStartProfit.Location = new System.Drawing.Point(117, 55);
             this.txtStartProfit.Mask = "000000";
             this.txtStartProfit.Name = "txtStartProfit";
             this.txtStartProfit.Size = new System.Drawing.Size(100, 22);
@@ -187,7 +187,7 @@
             // 
             // txtMartinPorfit
             // 
-            this.txtMartinPorfit.Location = new System.Drawing.Point(111, 85);
+            this.txtMartinPorfit.Location = new System.Drawing.Point(117, 91);
             this.txtMartinPorfit.Mask = "000000";
             this.txtMartinPorfit.Name = "txtMartinPorfit";
             this.txtMartinPorfit.Size = new System.Drawing.Size(100, 22);
@@ -195,7 +195,7 @@
             // 
             // txtScale
             // 
-            this.txtScale.Location = new System.Drawing.Point(326, 17);
+            this.txtScale.Location = new System.Drawing.Point(332, 23);
             this.txtScale.Mask = "0";
             this.txtScale.Name = "txtScale";
             this.txtScale.Size = new System.Drawing.Size(100, 22);
@@ -203,7 +203,7 @@
             // 
             // txtPointDistance
             // 
-            this.txtPointDistance.Location = new System.Drawing.Point(326, 49);
+            this.txtPointDistance.Location = new System.Drawing.Point(332, 55);
             this.txtPointDistance.Mask = "000000";
             this.txtPointDistance.Name = "txtPointDistance";
             this.txtPointDistance.Size = new System.Drawing.Size(100, 22);
@@ -211,7 +211,7 @@
             // 
             // txtMaxSheet
             // 
-            this.txtMaxSheet.Location = new System.Drawing.Point(326, 81);
+            this.txtMaxSheet.Location = new System.Drawing.Point(332, 87);
             this.txtMaxSheet.Mask = "00";
             this.txtMaxSheet.Name = "txtMaxSheet";
             this.txtMaxSheet.Size = new System.Drawing.Size(100, 22);
@@ -219,7 +219,7 @@
             // 
             // txtFakeProfit
             // 
-            this.txtFakeProfit.Location = new System.Drawing.Point(544, 17);
+            this.txtFakeProfit.Location = new System.Drawing.Point(550, 23);
             this.txtFakeProfit.Mask = "000000";
             this.txtFakeProfit.Name = "txtFakeProfit";
             this.txtFakeProfit.Size = new System.Drawing.Size(100, 22);
@@ -227,7 +227,7 @@
             // 
             // txtTestFunds
             // 
-            this.txtTestFunds.Location = new System.Drawing.Point(544, 49);
+            this.txtTestFunds.Location = new System.Drawing.Point(550, 55);
             this.txtTestFunds.Mask = "0000000000";
             this.txtTestFunds.Name = "txtTestFunds";
             this.txtTestFunds.Size = new System.Drawing.Size(100, 22);
@@ -237,7 +237,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label9.Location = new System.Drawing.Point(691, 17);
+            this.label9.Location = new System.Drawing.Point(697, 23);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(76, 16);
             this.label9.TabIndex = 0;
@@ -245,7 +245,7 @@
             // 
             // numTotalQty
             // 
-            this.numTotalQty.Location = new System.Drawing.Point(773, 17);
+            this.numTotalQty.Location = new System.Drawing.Point(779, 23);
             this.numTotalQty.Maximum = new decimal(new int[] {
             20,
             0,
@@ -264,7 +264,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label10.Location = new System.Drawing.Point(657, 55);
+            this.label10.Location = new System.Drawing.Point(663, 61);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(110, 16);
             this.label10.TabIndex = 0;
@@ -272,7 +272,7 @@
             // 
             // txtInWarehousePrice
             // 
-            this.txtInWarehousePrice.Location = new System.Drawing.Point(773, 55);
+            this.txtInWarehousePrice.Location = new System.Drawing.Point(779, 61);
             this.txtInWarehousePrice.Mask = "000000";
             this.txtInWarehousePrice.Name = "txtInWarehousePrice";
             this.txtInWarehousePrice.Size = new System.Drawing.Size(100, 22);
@@ -281,7 +281,7 @@
             // txtStartQty
             // 
             this.txtStartQty.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Martingale.Properties.Settings.Default, "startHandQty", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtStartQty.Location = new System.Drawing.Point(111, 17);
+            this.txtStartQty.Location = new System.Drawing.Point(117, 23);
             this.txtStartQty.Mask = "0.00";
             this.txtStartQty.Name = "txtStartQty";
             this.txtStartQty.Size = new System.Drawing.Size(100, 22);
@@ -290,7 +290,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(680, 84);
+            this.button1.Location = new System.Drawing.Point(970, 26);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 9;
@@ -300,28 +300,49 @@
             // 
             // txtMsg
             // 
-            this.txtMsg.Location = new System.Drawing.Point(15, 128);
+            this.txtMsg.Location = new System.Drawing.Point(20, 27);
             this.txtMsg.Name = "txtMsg";
-            this.txtMsg.Size = new System.Drawing.Size(1016, 22);
+            this.txtMsg.Size = new System.Drawing.Size(821, 22);
             this.txtMsg.TabIndex = 10;
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 157);
+            this.tabControl1.Location = new System.Drawing.Point(12, 56);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1043, 313);
+            this.tabControl1.Size = new System.Drawing.Size(1043, 428);
             this.tabControl1.TabIndex = 11;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.txtPointDistance);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.txtInWarehousePrice);
+            this.tabPage1.Controls.Add(this.btnSearch);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.numTotalQty);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.txtMartinPorfit);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.txtMaxSheet);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.txtTestFunds);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.txtFakeProfit);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.txtScale);
+            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.txtStartProfit);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.txtStartQty);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1035, 287);
+            this.tabPage1.Size = new System.Drawing.Size(1035, 402);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Buy";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -367,32 +388,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1059, 482);
+            this.ClientSize = new System.Drawing.Size(1059, 492);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.txtMsg);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtInWarehousePrice);
-            this.Controls.Add(this.numTotalQty);
-            this.Controls.Add(this.txtMartinPorfit);
-            this.Controls.Add(this.txtMaxSheet);
-            this.Controls.Add(this.txtPointDistance);
-            this.Controls.Add(this.txtTestFunds);
-            this.Controls.Add(this.txtFakeProfit);
-            this.Controls.Add(this.txtScale);
-            this.Controls.Add(this.txtStartProfit);
-            this.Controls.Add(this.txtStartQty);
             this.Controls.Add(this.btnExport);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -402,6 +402,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numTotalQty)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.menuStrip1.ResumeLayout(false);
